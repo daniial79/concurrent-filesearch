@@ -30,6 +30,7 @@ func fileSearch(root, fileName string) {
 		if strings.Contains(file.Name(), filepath.Join(root, file.Name())) {
 			lock.Lock()
 			matches = append(matches, filepath.Join(root, file.Name()), fileName)
+			lock.Unlock()
 		}
 
 		if file.IsDir() {
